@@ -17,18 +17,18 @@ const userHandler = createAsyncHandler('GET_USER', 'user');
 
 // 위에서 만든 객체 / 유틸 함수들을 사용하여 리듀서 작성
 function usersReducer(state, action) {
-switch (action.type) {
-    case 'GET_USERS':
-    case 'GET_USERS_SUCCESS':
-    case 'GET_USERS_ERROR':
-        return usersHandler(state, action);
-    case 'GET_USER':
-    case 'GET_USER_SUCCESS':
-    case 'GET_USER_ERROR':
-        return userHandler(state, action);
-    default:
-        throw new Error(`Unhanded action type: ${action.type}`);
-}
+    switch (action.type) {
+        case 'GET_USERS':
+        case 'GET_USERS_SUCCESS':
+        case 'GET_USERS_ERROR':
+            return usersHandler(state, action);
+        case 'GET_USER':
+        case 'GET_USER_SUCCESS':
+        case 'GET_USER_ERROR':
+            return userHandler(state, action);
+        default:
+            throw new Error(`Unhanded action type: ${action.type}`);
+    }
 }
 
 // State 용 Context 와 Dispatch 용 Context 따로 만들어주기
@@ -66,7 +66,7 @@ export function useUsersDispatch() {
     if (!dispatch) {
         throw new Error('Cannot find UsersProvider');
     }
-    
+
     return dispatch;
 }
 
