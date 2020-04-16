@@ -8,6 +8,7 @@ export function createAsyncDispatcher(type, promiseFn) {
     // ...rest 를 사용하여 나머지 파라미터를 rest 배열에 담습니다.
     async function actionHandler(dispatch, ...rest) {
         dispatch({ type }); // 요청 시작됨
+        
         try {
             const data = await promiseFn(...rest); // rest 배열을 spread 로 넣어줍니다.
 
